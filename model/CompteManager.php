@@ -10,9 +10,9 @@ class CompteManager {
 
 	public function create(Compte $compte) {
 		// On crée un compte et on lui assigne le nom indiqué dans le formulaire
-		$q = $this->_db->prepare('INSERT INTO compte(name) VALUES(:name)');
-		$q->bindValue(':name', $compte->getName());
-		$q->execute();
+		$req = $this->_db->prepare('INSERT INTO compte(name) VALUES(:name)');
+		$req->bindValue(':name', $compte->getName());
+		$req->execute();
 	}
 
 	public function getList($user_id){
@@ -29,8 +29,11 @@ class CompteManager {
 		return $listeComptes;
 	}
 
-	public function delete() {
+	public function delete(Compte $compte) {
 		// On sélectionne le compte qui correspond a l'ID indiqué dans le formulaire et on le supprime de la BDD
+		$req = $this->_db->prepare('DELETE FROM compte WHERE id = ' .$compte->getId());
+		$req->execute();
+
 	}
 
 	public function credit() {

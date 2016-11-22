@@ -14,4 +14,4 @@ if(!empty($_POST['create'])){
 	// On envoie les valeurs de l'objet crée a la bdd
 	$manager->create($compte);
 }
-header('location: ../views/index.php');
+header('location: ../view/index.php');
