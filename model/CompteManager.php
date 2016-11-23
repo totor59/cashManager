@@ -36,8 +36,23 @@ class CompteManager {
 
 	}
 
-	public function credit() {
-		// On crédite le compte visé avec la somme indiquée dans le formulaire 
+	public function getCompte($id) {
+		$req = $this->_db->prepare('SELECT * FROM compte WHERE id = :id');
+		$req->bindValue(':id', $id);
+		$req->execute();
+		while ($donnees = $req->fetch(PDO::FETCH_ASSOC))
+		{
+			$compte = new Compte($donnees);
+		}
+		return $compte;
+	}
+
+
+	public function update(Compte $compte) {
+		$req = $this->_db->prepare('UPDATE compte SET solde = :solde where id = :id');
+		$req->bindValue(':solde', $compte->getSolde());
+		$req->bindValue(':id', $compte->getId());
+		$req->execute();
 	}
 
 	public function debit() {

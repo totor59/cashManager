@@ -65,10 +65,10 @@ foreach($list as $compte){
 							<input name="create" type="text"><br>
 							<input type="submit" value="Créer">
 						</form>
-						<form action="">
+						<form action="../controller/credit.php" method="post">
 							<h3>Créditer un compte</h3>
-							<label for="crebit">N° du compte à créditer</label><br>
-							<input name="crebit" type="text"><br>
+							<label for="id">N° du compte à créditer</label><br>
+							<input name="id" type="text"><br>
 							<label for="montant">Montant à créditer</label><br>
 							<input name="montant" type="text"><br>
 							<input type="submit" value="Créditer">
@@ -76,10 +76,10 @@ foreach($list as $compte){
 
 				</div>
 				<div class="col">
-						<form action="">
+						<form action="../controller/debit.php" method="post">
 							<h3>Débiter un compte</h3>
-							<label for="debit">N° du compte à débiter</label><br>
-							<input name="debit" type="text"><br>
+							<label for="id">N° du compte à débiter</label><br>
+							<input name="id" type="text"><br>
 							<label for="montant">Montant à débiter</label><br>
 							<input name="montant" type="text"><br>
 							<input type="submit" value="Débiter">
@@ -92,7 +92,7 @@ foreach($list as $compte){
 						</form>
 				</div>
 				<div class="col">
-						<form action="">
+						<form action="../controller/transfer.php" method="post">
 							<h3>Faire un virement</h3>
 							<label for="debiteur">N° du compte à débiter</label><br>
 							<input name="debiteur" type="text"><br>

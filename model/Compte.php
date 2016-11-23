@@ -4,7 +4,7 @@
 class Compte {
 	private $_id;
 	private $_name;
-	private $_solde;
+	protected $_solde;
 	private $_user_id;
 
        
@@ -40,6 +40,7 @@ class Compte {
 		}
 	}
 	public function setSolde($solde) {
+		$solde = (int)$solde;
 		$this->_solde = $solde;
 	}
 	public function setUserId($user_id) {
@@ -47,17 +48,16 @@ class Compte {
 	}
 
 	// Créditer et débiter
-
 	public function credit($montant) {
-		if(( $montant > 0 ) && (is_int($montant))) {
-			$this->$solde += $montant;
+		if( $montant > 0 ) {
+			$this->_solde += $montant;
 		} else {
-			echo 'ERREUR FUNCTION CREDIT';
-		}
+			echo 'ERREUR FUNCTION DEBIT';
+	}
 	}
 	public function debit($montant) {
-		if(( $montant > 0 ) && (is_int($montant))) {
-			$this->$solde -= $montant;
+		if( $montant > 0 ) {
+			$this->_solde -= $montant;
 		} else {
 			echo 'ERREUR FUNCTION DEBIT';
 	}
