@@ -21,9 +21,11 @@ canvas {
 	z-index: -100;
 }
 h1 {
-	width: 100%;
+	width: 90%;
 	text-align: center;
 	text-decoration: underline;
+	margin: 0 10%;
+	padding-top: 10px;
 
 }
 .container {
@@ -80,4 +82,8 @@ td {
 	border-radius: 5px;
 	padding: 0 10px;
 }
-
+/* PAGE INSCRIPTION */
+.connexion,
+.inscription {
+	padding: 20px;
+}
